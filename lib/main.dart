@@ -16,6 +16,9 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
+
   final _transactions = [
     Transaction(
       id: 't1',
@@ -31,7 +34,9 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
-  MyHomePage({super.key});
+  MyHomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -100,17 +105,22 @@ class MyHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  const TextField(
+                  TextField(
+                    controller: titleController,
                     decoration: InputDecoration(labelText: 'Título'),
                   ),
-                  const TextField(
+                  TextField(
+                    controller: valueController,
                     decoration: InputDecoration(labelText: 'Valor R\$'),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(titleController.text);
+                          print(valueController.text);
+                        },
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.purple,
                         ),
