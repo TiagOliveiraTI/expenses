@@ -22,7 +22,21 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Despesas Pessoais'),
       ),
-      body: Center(child: Text('Versão Inicial')),
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            child: const Card(
+              color: Colors.cyan,
+              elevation: 5,
+              child: Text('Gráfico'),
+            ),
+          ),
+          const Card(
+            child: Text('Lista de transações'),
+          ),
+        ],
+      ),
     );
   }
 }
