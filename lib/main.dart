@@ -1,5 +1,6 @@
 import 'package:expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(const ExpensesApp());
 
@@ -83,7 +84,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ), //  no inicio, font 16, bold
                           Text(
-                            tr.date.toString(),
+                            DateFormat('d/MM/yyyy').format(tr.date),
                             style: TextStyle(color: Colors.grey[600]),
                           ), // no inicio cinza
                         ],
