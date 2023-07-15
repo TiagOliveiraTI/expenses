@@ -52,13 +52,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'Novo Tenis de corrida',
-      value: 310.76,
-      date: DateTime.now(),
-    ),
+  final List<Transaction> _transactions = [
+    // Transaction(
+    // id: 't1',
+    // title: 'Novo Tenis de corrida',
+    // value: 310.76,
+    // date: DateTime.now(),
+    // ),
   ];
 
   @override
