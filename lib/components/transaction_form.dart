@@ -6,7 +6,7 @@ class TransactionForm extends StatelessWidget {
 
   final void Function(String, double) onSubmit;
 
-  TransactionForm(this.onSubmit);
+  TransactionForm(this.onSubmit, {super.key});
 
   @override
   Widget build(BuildContext context) {

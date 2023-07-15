@@ -22,20 +22,21 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Despesas Pessoais'),
-      ),
-      body: const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Card(
-            color: Colors.cyan,
-            elevation: 5,
-            child: Text('Gráfico'),
+        appBar: AppBar(
+          title: const Text('Despesas Pessoais'),
+        ),
+        body: SingleChildScrollView(
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Card(
+                color: Colors.cyan,
+                elevation: 5,
+                child: Text('Gráfico'),
+              ),
+              TransactionUser(),
+            ],
           ),
-          TransactionUser()
-        ],
-      ),
-    );
+        ));
   }
 }
