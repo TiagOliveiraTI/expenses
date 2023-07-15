@@ -13,8 +13,16 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyHomePage(),
+    final ThemeData theme = ThemeData();
+
+    return MaterialApp(
+      home: const MyHomePage(),
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(
+          primary: Colors.purple,
+          secondary: Colors.amber,
+        ),
+      ),
     );
   }
 }
@@ -54,10 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Card(
-              color: Colors.cyan,
+            Card(
+              color: Theme.of(context).colorScheme.primary,
               elevation: 5,
-              child: Text('Gráfico'),
+              child: const Text('Gráfico'),
             ),
             TransactionList(transactions: _transactions)
           ],
@@ -67,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
         onPressed: () => _openTransactionFormModal(context),
       ),
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
