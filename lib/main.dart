@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:expenses/components/chart.dart';
 import 'package:flutter/material.dart';
 
 import 'components/transaction_form.dart';
@@ -53,12 +54,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    // Transaction(
-    // id: 't1',
-    // title: 'Novo Tenis de corrida',
-    // value: 310.76,
-    // date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 't1',
+      title: 'Novo Tenis de corrida',
+      value: 310.76,
+      date: DateTime.now().subtract(Duration(days: 33)),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'calça',
+      value: 50.76,
+      date: DateTime.now().subtract(Duration(days: 2)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Café',
+      value: 10.50,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
   ];
 
   @override
@@ -77,11 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Card(
-              color: Theme.of(context).colorScheme.primary,
-              elevation: 5,
-              child: const Text('Gráfico'),
-            ),
+            Chart(recentTransactions: _recentTransactions),
             TransactionList(transactions: _transactions)
           ],
         ),
@@ -93,6 +102,14 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
+  }
+
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((tr) {
+      return tr.date.isAfter(DateTime.now().subtract(
+        Duration(days: 7),
+      ));
+    }).toList();
   }
 
   _openTransactionFormModal(BuildContext context) {
