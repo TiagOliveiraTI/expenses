@@ -58,19 +58,19 @@ class _MyHomePageState extends State<MyHomePage> {
       id: 't1',
       title: 'Novo Tenis de corrida',
       value: 310.76,
-      date: DateTime.now().subtract(Duration(days: 33)),
+      date: DateTime.now().subtract(const Duration(days: 33)),
     ),
     Transaction(
       id: 't2',
       title: 'calça',
       value: 50.76,
-      date: DateTime.now().subtract(Duration(days: 2)),
+      date: DateTime.now().subtract(const Duration(days: 2)),
     ),
     Transaction(
       id: 't3',
       title: 'Café',
       value: 10.50,
-      date: DateTime.now().subtract(Duration(days: 1)),
+      date: DateTime.now().subtract(const Duration(days: 1)),
     ),
   ];
 
@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Transaction> get _recentTransactions {
     return _transactions.where((tr) {
       return tr.date.isAfter(DateTime.now().subtract(
-        Duration(days: 7),
+        const Duration(days: 7),
       ));
     }).toList();
   }
