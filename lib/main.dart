@@ -55,26 +55,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'Novo Tenis de corrida',
-      value: 310.76,
-      date: DateTime.now().subtract(const Duration(days: 33)),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'calça',
-      value: 50.76,
-      date: DateTime.now().subtract(const Duration(days: 2)),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'Café',
-      value: 10.50,
-      date: DateTime.now().subtract(const Duration(days: 1)),
-    ),
-  ];
+  final List<Transaction> _transactions = [];
 
   @override
   Widget build(BuildContext context) {
@@ -123,12 +104,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _addTransaction(String title, double value) {
+  _addTransaction(String title, double value, DateTime date) {
     final newTransaction = Transaction(
       id: Random().hashCode.toString(),
       title: title,
       value: value,
-      date: DateTime.now(),
+      date: date,
     );
 
     setState(() {
